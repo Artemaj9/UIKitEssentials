@@ -35,6 +35,7 @@ class ViewController: UIViewController {
             webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             webView.topAnchor.constraint(equalTo: view.topAnchor),
+            webView.heightAnchor.constraint(equalToConstant: 400),
             //webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             toolBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -47,9 +48,9 @@ class ViewController: UIViewController {
         forwardButtonItem.action = #selector(forwardAction)
         refreshButtonItem.action = #selector(refreshAction)
         
-        loadRequest()
+        //loadRequest()
        // loadPDF()
-       // loadHtml()
+        loadHtml()
         
         webView.navigationDelegate = self
     }
