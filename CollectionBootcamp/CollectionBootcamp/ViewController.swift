@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.dragInteractionEnabled = true
        // collectionView.backgroundColor = .blue.withAlphaComponent(0.1)
         
         NSLayoutConstraint.activate([
@@ -44,6 +45,7 @@ class ViewController: UIViewController {
         ])
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.dragDelegate = self
         
         collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: "\(PhotoCell.self)")
         collectionView.register(HeaderReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "\(HeaderReusableView.self)")
@@ -181,5 +183,33 @@ extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
         print("Display header with  element kind \(elementKind)")
+    }
+}
+
+extension ViewController: UICollectionViewDragDelegate {
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        let photo = source[indexPath.section].photos[indexPath.item]
+        let itemProvider = NSItemProvider(object: photo)
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        return [dragItem]
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, dragSessionWillBegin session: UIDragSession) {
+        UIView.animate(withDuration: 0.5) {
+            self.button.alpha = 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, dragSessionDidEnd session: UIDragSession) {
+        UIView.animate(withDuration: 0.5) {
+            self.button.alpha = 1
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, itemsForAddingTo session: UIDragSession, at indexPath: IndexPath, point: CGPoint) -> [UIDragItem] {
+        let photo = source[indexPath.section].photos[indexPath.item]
+        let itemProvider = NSItemProvider(object: photo)
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        return [dragItem]
     }
 }
