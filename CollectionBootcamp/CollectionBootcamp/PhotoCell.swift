@@ -11,13 +11,21 @@ class PhotoCell: UICollectionViewCell {
     
     var imageView = UIImageView()
     
+    let imageLayer = CALayer()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = 8
+        imageView.layer.cornerRadius = 50
+        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderWidth = 2
+        layer.shadowOffset = CGSize(width: 4, height: 4)
+        layer.shadowOpacity = 0.3
+        layer.shadowRadius = 5
     }
     
     required init?(coder: NSCoder) {
@@ -29,7 +37,7 @@ class PhotoCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         
-        self.clipsToBounds = true
+        imageView.clipsToBounds = true
         
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

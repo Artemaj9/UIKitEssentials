@@ -17,13 +17,12 @@ class ViewController: UIViewController {
     
     //let source: [Photo] = Source.randomPhotos(with: 150)
     let source: [SectionPhoto] = [
-        SectionPhoto(sectionName: "First Section", photos: Source.randomPhotos(with: 10)),
+        SectionPhoto(sectionName: "First Section", photos: Source.randomPhotos(with: 15)),
         SectionPhoto(sectionName: "Second Section", photos: Source.randomPhotos(with: 15))
     ]
     override func viewDidLoad() {
         setupButton()
         setupCollectionView()
-       
         super.viewDidLoad()
        // view.backgroundColor = .lightGray
     }
@@ -44,6 +43,7 @@ class ViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24)
         ])
         collectionView.dataSource = self
+        collectionView.delegate = self
         
         collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: "\(PhotoCell.self)")
         collectionView.register(HeaderReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "\(HeaderReusableView.self)")
@@ -134,3 +134,52 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
+extension ViewController: UICollectionViewDelegate {
+//    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+//        true
+//    }
+//    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+//        let cell = collectionView.cellForItem(at: indexPath)
+//        cell?.contentView.backgroundColor = .red
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+//        let cell = collectionView.cellForItem(at: indexPath)
+//        cell?.contentView.backgroundColor = .clear
+//    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let alerController = UIAlertController(title: "select", message: "Section - \(indexPath.section), item - \(indexPath.item)", preferredStyle: .actionSheet)
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        alerController.addAction(okAction)
+        self.present(alerController, animated: true)
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let lastSection = source.count - 1
+        let lastItem = source[lastSection].photos.count - 1
+        
+        let lastIndexPath = IndexPath(item: lastItem, section: lastSection)
+        
+        if indexPath == lastIndexPath {
+            print(" Awesome!")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print("End display cell \(indexPath.section), item - \(indexPath.item)")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
+        print("End display header with  element kind \(elementKind)")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
+        print("Display header with  element kind \(elementKind)")
+    }
+}
