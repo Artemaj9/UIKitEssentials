@@ -8,7 +8,7 @@
 import UIKit
 
 class OnePushViewController: UIViewController {
-
+    
     let pushButton = UIButton()
     let popButton = UIButton()
     
@@ -18,7 +18,35 @@ class OnePushViewController: UIViewController {
         title = "OnePushViewController"
         configurePushButton()
         configurePopButton()
-
+        // navigationItem.hidesBackButton = true
+        // navigationItem.setHidesBackButton(true, animated: true)
+        
+        //        navigationItem.backAction = UIAction(handler: { _ in
+        //            let controller = UIAlertController(title: "Are you sure?", message: "You'll lose you data", preferredStyle: .alert)
+        //            let ok = UIAlertAction(title: "Ok", style: .default) { _ in
+        //                self.navigationController?.popViewController(animated: true)
+        //            }
+        //
+        //            let cancel = UIAlertAction(title: "cancel", style: .cancel)
+        //
+        //            controller.addAction(cancel)
+        //            controller.addAction(ok)
+        //            self.present(controller, animated: true)
+        //        })
+        
+        /*
+         navigationItem.leftBarButtonItem = UIBarButtonItem(
+         title: "Roll it!",
+         style: .plain,
+         target: self,
+         action: #selector(backAction)
+         )
+         }
+         @objc func backAction() {
+         // navigationController?.popViewController(animated: true)
+         print(#function)
+         }
+         */
     }
 }
 

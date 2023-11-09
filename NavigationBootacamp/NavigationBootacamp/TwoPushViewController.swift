@@ -11,14 +11,16 @@ class TwoPushViewController: UIViewController {
 
     let popToRootButton = UIButton()
     let pushButton = UIButton()
+    let presentButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         view.backgroundColor = .purple
-        title = "OnePushViewController"
+        title = "TwoPushViewController"
         configurePopToRootButton()
+        configurePresentButton()
     }
 }
 
@@ -44,4 +46,23 @@ extension TwoPushViewController{
         @objc func popButtonAction() {
             navigationController?.popToRootViewController(animated: true)
         }
+}
+
+extension TwoPushViewController {
+    func configurePresentButton() {
+        presentButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(presentButton)
+        NSLayoutConstraint.activate([
+            presentButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -40),
+            presentButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            presentButton.widthAnchor.constraint(equalToConstant: 200),
+            presentButton.heightAnchor.constraint(equalToConstant: 60)
+        ])
+        presentButton.makeMeButton("Present", color: .red)
+        presentButton.addTarget(self, action: #selector(presentButtonAction), for: .touchUpInside)
+    }
+    
+    @objc func presentButtonAction() {
+        navigationController?.pushViewController(PresentedViewController(), animated: true)
+    }
 }

@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         title = "ViewController"
         configurePresentButton()
         configurePushButton()
+        configureBackButtonItem()
     }
     
  
@@ -74,4 +75,22 @@ extension UIButton {
         self.layer.borderColor = UIColor.black.cgColor
         self.backgroundColor = color ?? .red
     }
+}
+extension ViewController {
+    func configureBackButtonItem() {
+        //navigationItem.backButtonTitle = "BACK!"
+        // navigationItem.backButtonDisplayMode = .minimal
+        // navigationItem.ba
+        
+        
+        /*
+         navigationItem.backBarButtonItem = UIBarButtonItem(
+         title: "Roll it!",
+         style: .plain,
+         target: self,
+         action: #selector(backAction)
+         )
+         */
+    }
+    
 }
