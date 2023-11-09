@@ -8,22 +8,44 @@
 import Foundation
 
 struct Source {
-    static func allPhotos() -> [Photo] {
+    static func allPeople() -> [String] {
         [
-        
-            .init(id: 1, imageName: "1"),
-            .init(id: 2, imageName: "2"),
-            .init(id: 3, imageName: "3"),
-            .init(id: 4, imageName: "4"),
-            .init(id: 5, imageName: "5"),
-            .init(id: 6, imageName: "6"),
-            .init(id: 7, imageName: "7"),
-            .init(id: 8, imageName: "8"),
-            .init(id: 9, imageName: "9")
-            ]
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+        ]
     }
+    
+    static func makePhoto (name: String) -> Photo {
+        .init(id: UUID().uuidString, imageName: name)
+    }
+
+//    static func allPhotos() -> [Photo] {
+//        [
+//
+//            .init(id: 1, imageName: "1"),
+//            .init(id: 2, imageName: "2"),
+//            .init(id: 3, imageName: "3"),
+//            .init(id: 4, imageName: "4"),
+//            .init(id: 5, imageName: "5"),
+//            .init(id: 6, imageName: "6"),
+//            .init(id: 7, imageName: "7"),
+//            .init(id: 8, imageName: "8"),
+//            .init(id: 9, imageName: "9")
+//            ]
+//    }
     static func randomPhotos(with count: Int) -> [Photo] {
-        return (0..<count).map { _ in allPhotos().randomElement()! }
+       // return (0..<count).map { _ in allPhotos().randomElement()! }
+        return (0..<count).map{ _ in
+            let name = allPeople().randomElement()!
+            return makePhoto(name: name)
+        }
     }
 }
 
@@ -36,10 +58,10 @@ class Photo: NSObject, NSItemProviderWriting {
         nil
     }
     
-    let id: Int
+    let id: String
     let imageName: String
     
-    init(id: Int, imageName: String) {
+    init(id: String, imageName: String) {
         self.id = id
         self.imageName = imageName
     }
@@ -47,5 +69,5 @@ class Photo: NSObject, NSItemProviderWriting {
 
 struct SectionPhoto {
     let sectionName: String
-    let photos: [Photo]
+    var photos: [Photo]
 }
