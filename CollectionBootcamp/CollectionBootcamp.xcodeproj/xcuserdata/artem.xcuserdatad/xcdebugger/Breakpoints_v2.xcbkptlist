@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "207A8B92-2391-4834-B414-A60B482EA5FA"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "02F4C1FB-F658-4D6F-9B18-E0D87E5DECD2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollectionBootcamp/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "collectionView(_:performDropWith:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "02F4C1FB-F658-4D6F-9B18-E0D87E5DECD2 - a22efd111e13e289"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CollectionBootcamp.ViewController.collectionView(_: __C.UICollectionView, performDropWith: __C.UICollectionViewDropCoordinator) -&gt; ()"
+                  moduleName = "CollectionBootcamp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artem/Desktop/Development/Youtube(JustaSid)/CollectionBootcamp/CollectionBootcamp/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "1304">
+               </Location>
+               <Location
+                  uuid = "02F4C1FB-F658-4D6F-9B18-E0D87E5DECD2 - a22efd111e13e289"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CollectionBootcamp.ViewController.collectionView(_: __C.UICollectionView, performDropWith: __C.UICollectionViewDropCoordinator) -&gt; ()"
+                  moduleName = "CollectionBootcamp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artem/Desktop/Development/Youtube(JustaSid)/CollectionBootcamp/CollectionBootcamp/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "2220">
+               </Location>
+               <Location
+                  uuid = "02F4C1FB-F658-4D6F-9B18-E0D87E5DECD2 - a22efd111e13e289"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CollectionBootcamp.ViewController.collectionView(_: __C.UICollectionView, performDropWith: __C.UICollectionViewDropCoordinator) -&gt; ()"
+                  moduleName = "CollectionBootcamp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artem/Desktop/Development/Youtube(JustaSid)/CollectionBootcamp/CollectionBootcamp/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "952">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
